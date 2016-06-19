@@ -1,0 +1,116 @@
+<br>
+<div class="row">
+<div class="col-md-12 col-sm-12 col-xs-12 TableList">
+              <div class="x_panel tile fixed_height_320">
+                <div class="x_title">
+                  <h2>{{announcements}}</h2>
+                  <button  ng-click="onClickCreate()" class="btn btn-primary">Create Announcement</button>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+	
+    <table class="table-widths table table-striped" my-table="overrideOptions"  aa-data="announcementsList" ao-column-defs="columnDefs" fn-row-callback="myCallback">
+            <thead>
+            <tr>
+                <th >Title</th>
+                <th >Public</th>
+                <th >POC Name</th>
+                <th >POC Contact</th>
+                <th >Action</th>
+            </tr>
+            </thead>
+        </table>
+ {{message}}
+
+                </div>
+              </div>
+</div>
+<div class="col-md-12 col-sm-12 col-xs-12 FormView" style="display: none">
+              <div class="x_panel tile fixed_height_320">
+                <div class="x_title">
+                  <h2>{{title}}</h2>
+                  <button  ng-click="backNav()" class="btn btn-primary">View Announcements</button>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+		
+
+	
+	<form class="form-horizontal" name="announcementForm" role="form" ng-submit="announcementForm.$valid && saveAnnouncement()"
+		novalidate>
+
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="title">Title<span>*</span></label>
+			<div class="col-sm-4" ng-class="{true: 'has-error'} [announcementForm.title.$invalid && submitted ]">
+				<input type="text" class="form-control" ng-model="data.title" name="title" required="required"
+					id="title" placeholder="Enter Announcement Title">	
+				<p ng-show="announcementForm.title.$invalid && submitted" class="help-block">Title is required.</p>	
+			</div>			 
+		</div>
+		
+		
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="description">Description<span>*</span></label>
+			<div class="col-sm-4" ng-class="{true: 'has-error'} [announcementForm.description.$invalid && submitted ]">
+				<textarea id="description" class="form-control" required="required"
+					ng-model="data.description" name="description"
+					placeholder="Enter Announcement Description"></textarea>
+				<p ng-show="announcementForm.description.$invalid && submitted" class="help-block">Description is required.</p>
+			</div>			
+		</div>
+		
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="public">Public</label>
+			<div class="col-sm-1">
+				<input type="checkbox" class="form-control" ng-model="data.public" name="public" id="public">
+			</div>			
+		</div>
+		
+		
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="name">Point Of Contact <span>*</span></label>			
+			<div class="col-sm-4" ng-class="{true: 'has-error'} [announcementForm.name.$invalid && submitted ]">
+				<input type="text" class="form-control" ng-model="data.contacts_list[0].name" name="name" placeholder="Name" id="name" required="required">
+				<p ng-show="announcementForm.name.$invalid && submitted" class="help-block">Name is required</p>
+			</div>
+			<div class="col-sm-4" ng-class="{true: 'has-error'} [announcementForm.phone.$invalid && submitted ]">
+				<input type="text" class="form-control" type="number" class="form-control" maxlength="10" 
+					   ng-model="data.contacts_list[0].phone" placeholder="Phone" name="phone" id="phone" required="required"> 
+				<p ng-show="announcementForm.phone.$invalid && submitted" class="help-block">Contact number is required</p>
+			</div>			
+		</div>
+		
+		<div ng-if="isCreate == false">
+			<div class="form-group">
+				<label class="control-label col-sm-4">Created By</label>
+				<span class="control-label col-sm-offset-1 col-sm-8">{{created_by_name}}</span>			 
+			</div>
+			
+			<div class="form-group">
+				<label class="control-label col-sm-4">Created Date</label>
+				<span class="control-label col-sm-8">{{data.created_date}}</span>			 
+			</div>
+			
+			<div class="form-group">
+				<label class="control-label col-sm-4">Last Updated By</label>
+				<span class="control-label col-sm-8">{{updated_by_name}}</span>			 
+			</div>
+			
+			<div class="form-group">
+				<label class="control-label col-sm-4">Last Updated Date</label>
+				<span class="control-label col-sm-8">{{data.last_updated_date}}</span>			 
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10" style="text-align: right">
+				<button type="submit" ng-click="submitted=true" class="btn btn-primary">Save</button>
+			</div>
+		</div>
+	</form>
+
+                </div>
+              </div>
+</div>
+</div>
