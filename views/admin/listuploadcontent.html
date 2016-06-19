@@ -1,0 +1,76 @@
+<span class="FormView" ng-click="backNav()" style="display: none">Back</span>
+<div class="TableList">
+    <table class="dataTable" my-table="overrideOptions"  aa-data="sampleProductCategories" ao-column-defs="columnDefs" fn-row-callback="myCallback">
+            <thead>
+            <tr>
+                <th >Title</th>
+                <th >Portal Type</th>
+                <th >Created By</th>
+                <th >Created On</th>
+                <th >Status</th>
+                <th >Action</th>
+
+            </tr>
+            </thead>
+        </table>
+ {{message}}
+</div> 
+<div class="FormView" style="display: none">
+  <form class="form-horizontal" role="form" ng-submit="saveContent()" novalidate>
+      <fieldset class="col-sm-6">
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="segment">Segment:</label>
+    <div class="col-sm-10">
+        <select name="segment" id="segment" ng-model="data.portal_type" class="form-control" >
+      <option ng-repeat="option in segmentOptions" value="{{option.id}}" ng-selected="option.id==data.portal_type">{{option.label}}</option>
+    </select>
+<!--      <input type="text" class="form-control" id="segment" placeholder="Entser segment">-->
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="subject">Subject:</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" ng-model="data.title" id="subject" placeholder="Enter subject">
+    </div>
+  </div>
+          <div class="form-group">
+    <label class="control-label col-sm-2" for="status"> Status:</label>
+    <div class="col-sm-10">
+        <select  ng-model="data.status" class="form-control" >
+      <option ng-repeat="option in requestStatus" value="{{option.id}}" ng-selected="option.id==data.status">{{option.name}}</option>
+    </select>
+<!--      <input type="text" class="form-control" id="segment" placeholder="Entser segment">-->
+    </div>
+  </div>
+      </fieldset>
+      <fieldset class="col-sm-6">
+          <div class="form-group">
+      <label class="control-label col-sm-4" >Attachments:</label>
+    <div class="col-sm-8">
+  <div class="button addFiles" ngf-select ng-model="fileToUpload" name="fileToUpload" ngf-pattern="'*'"
+    ngf-accept="'*'" ngf-max-size="20MB" ngf-min-height="100" ng-change ="uploadFile(fileToUpload)">
+      Add Files
+      
+  </div>
+        <div class="attachmentBox">
+      <div class="bgIFile"  ng-repeat="val in fillFiles"><span><img src = "{{val.imgPic}}" class="filePic"/></span><span>{{val.nameFile}}</span><i class="closeImg" ng-click="deleteImg(val)" ></i></div>
+        </div>
+    </div>
+  </div>
+      </fieldset>
+  <div class="col-sm-12">
+    Content
+    <div class="col-sm-12" >
+       <div class="container lighter">
+            <div text-angular ng-model="data.content" name="demo-editor" ta-text-editor-class="border-around container richCnt" ta-html-editor-class="border-around"></div>
+        </div>  
+    </div>
+  </div>
+ 
+  <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10" style="text-align: right">
+      <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+  </div>
+</form>
+</div>

@@ -1,0 +1,89 @@
+
+                <div class="col-md-2 left-menu-div sub-divs">
+                   <h4>Menus</h4>
+                   <div class="left-menu">
+                       
+                       
+         <ul class="nav side-menu">
+        <li ng-repeat="item in items" ng-click="showChilds($index,$event)" class="{{item.class}}">
+            <a ui-sref="{{item.link}}">
+               
+                {{item.name}}
+               
+                        </a>
+            
+            <ul class="nav side-menu sub-nav-menus">
+                <li ng-repeat="subItem in item.subItems" ng-show="item.actives" >
+                    <a class="subMenuLinks">{{subItem.name}}</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+                       
+				</div>
+                </div>
+                <div class="col-md-10 center-menu-div sub-divs">
+                    <ui-view></ui-view>
+                    
+                </div>
+<!--                <div class="col-md-3 column-left sub-divs">
+    <div class="x_panel">
+                                <div class="x_title">
+                                    <h3 class="column-title" >Top Notifications </h3>
+                                    
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+                                    <article class="media event">
+                                       
+                                        <div class="media-body">
+                                            
+                                            <p>Free medical camp on 30/03/2016 by Mana JRG Varadhi.</p>
+                                        </div>
+                                    </article>
+                                    <article class="media event">
+                                        
+                                        <div class="media-body">
+                                            
+                                            <p>Dance competitions for school children on Ugadi by Mana JRG Varadhi
+
+.</p>
+                                        </div>
+                                    </article>
+                                    <article class="media event">
+                                        
+                                        <div class="media-body">
+                                            
+                                            <p>Blood donation camp on 29/03/2016.</p>
+                                        </div>
+                                    </article>
+                                    <article class="media event">
+                                        
+                                        <div class="media-body">
+                                            
+                                            <p>Self employment courses for single women.</p>
+                                        </div>
+                                    </article>
+                                    <article class="media event">
+                                        
+                                        <div class="media-body">
+                                    Seeks to further amend Notification No. 81/2005-Customs, dated the 08.09.2005 so as to carry out Budgetary changes.
+                                     </div>
+                                    </article>
+                                    <article class="media event">
+                                        
+                                        <div class="media-body">
+                                            
+                                            <p> consectetur adipiscingdolor sit amet, consectetur adipiscing adipiscing elit.</p>
+                                        </div>
+                                    </article>
+                                    <article class="media event">
+                                        
+                                        <div class="media-body">
+                                    Depending on what you read, it can take anywhere between five and 30 seconds.
+                                     </div>
+                                    </article>
+                                </div>
+                            </div>
+                </div>-->
+            
