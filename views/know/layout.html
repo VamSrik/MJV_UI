@@ -1,0 +1,55 @@
+
+                 <div class="col-md-2 left-menu-div fixMenu" >
+                     <h2 class="sideHeader">Knowledge Portal</h2>
+                   <div class="left-menu">
+                       
+                       
+         <ul class="nav side-menu">
+        <li ng-repeat="item in items" ng-click="showChilds($index,$event)" class="{{item.class}}">
+            <a ui-sref="{{item.link}}">
+               
+                {{item.name}}
+               
+                        </a>
+            
+            <ul class="nav side-menu sub-nav-menus">
+                <li ng-repeat="subItem in item.subItems" ng-show="item.actives" >
+                    <a class="subMenuLinks">{{subItem.name}}</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+                       
+				</div>
+                </div>
+                <div class="col-md-7 center-menu-div mid">
+                    <h3 class="column-title">{{subTitle}}</h3>
+                                    <div class="col-md-12">
+                                        <ui-view></ui-view>
+                                    </div>                    
+                </div>
+                <div class="col-md-3 center-menu-div rig">
+                    <h3 class="column-title">Announcements</h3>
+ <div class="x_panel">
+  
+  <div class="x_content">
+
+   <uib-accordion close-others="oneAtATime"> 
+    <uib-accordion-group ng-repeat="announcement in announcements">
+     <uib-accordion-heading>
+            {{announcement.title}} 
+            <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
+          </uib-accordion-heading>
+     {{announcement.description}}
+     
+     <br/>
+     <br/>    
+     
+     <span>Point of Contact : {{announcement.contacts_list[0].name}} {{announcement.contacts_list[0].phone}}</span>
+    </uib-accordion-group> 
+   </uib-accordion>
+
+  </div>
+ </div>
+</div>
+            

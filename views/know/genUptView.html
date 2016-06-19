@@ -1,0 +1,19 @@
+
+                    
+                    <ul class="messages">
+                        <li ng-repeat="item in details">
+                                                            <img alt="Avatar" class="avatar" src="mjv/img/profile.png">
+                                                            <div class="message_date">
+                                                                <h3 class="date text-info" ng-bind-html="dateNum(item.last_updated_date)"></h3>
+                                                                <p class="month" ng-bind-html="dateMonth(item.last_updated_date)"></p>
+                                                            </div>
+                                                            <div class="message_wrapper">
+                                                                <h4 class="heading">{{item.title}}</h4>
+                                                                <div class="message" ng-bind-html='toTrustedHTML(item.content)'></div>
+                                                                <br>
+                                                               
+                                                            </div>
+                                                        </li>
+                                                        
+
+                                                    </ul>
