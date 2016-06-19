@@ -1,0 +1,472 @@
+<!doctype html>
+<html ng-app="website">
+   
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Agency - Start Bootstrap Theme</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/agency.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<!--   <script src = "js/angular.min.js"></script>-->
+   
+   
+   
+   
+</head>
+    
+<body id="page-top" class="index" ng-controller="MainCtrl">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container header-menu">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll logoimg" href="#page-top"></a>
+                <div class="logo-label"></div>
+                <div class="logo-sublabel">BUILD TO SERVE</div>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="active-link">
+                        <a class="page-scroll" href="#home">Home</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#gallery">Gallery</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">Site Map</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#team">About Us</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contact Us</a>
+                    </li>
+                    <li class="dropdown">
+             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login <b class="caret"></b></a>
+             <ul class="dropdown-menu">
+                 <li>Login</li>
+                 <li><input type="text" class="form-control" name="userName" placeholder="User Name"/></li>
+               <li><input type="password" class="form-control" name="password" placeholder="Password"/></li>
+               <li class="dropdownLayout"><span data-toggle="modal" data-target="#myModal" >Sign Up</span><span><button class="btn btn-primary">Submit</button></span></li>
+             </ul>
+          </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    <header>
+        
+           <div class="container slider">
+    <img ng-repeat="slide in slides" class="slide slide-animation"
+        ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide.image}}">
+
+    <a class="arrow prev" href="#" ng-click="nextSlide()"></a>
+    <a class="arrow next" href="#" ng-click="prevSlide()"></a>
+    <nav class="navimg">
+        <div class="wrapper">
+            <ul class="dots">
+                <li class="dot" ng-repeat="slide in slides">
+                    <a href="#" ng-class="{'active':isCurrentSlideIndex($index)}"
+                      ng-click="setCurrentSlideIndex($index);">{{slide.description}}</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+        
+<!--        <div class="container">
+            <div class="intro-text">
+                <div class="intro-lead-in">Welcome To Our Studio!</div>
+                <div class="intro-heading">It's Nice To Meet You</div>
+                <a href="#services" class="page-scroll btn btn-xl">Tell Me More</a>
+            </div>
+        </div>-->
+
+    </header>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="container container-sub">
+            <div class="sec-nav-menu">
+               <ul class="nav sec-list-view">
+                   
+                    <li class="active-link">
+                        <a  href="#home">Knowledge Portal</a>
+                    </li>
+                    <li>
+                        <a  href="#gallery">Wonders Of JRG</a>
+                    </li>
+                    <li>
+                        <a href="#about">Need Help</a>
+                    </li>
+                    <li>
+                        <a  href="#team">Donations</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Volunteer</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#team">Admin</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-2 left-menu-div sub-divs">
+                    <h4>Contributions</h4>
+                   <div class="left-menu">
+					<ul class="nav side-menu">
+						<li class="active">
+							<a href="#">
+							<i class="glyphicon glyphicon-home"></i>
+							General Updates </a>
+						</li>
+						<li class="vn">
+							<a href="#">
+							<i class="glyphicon glyphicon-user"></i>
+							Career & Education </a>
+                                                    <ul style="" class="nav child_menu">
+                                        <li class="current-page"><a href="index.html">Dashboard</a>
+                                        </li>
+                                        <li><a href="index2.html">Dashboard2</a>
+                                        </li>
+                                        <li><a href="index3.html">Dashboard3</a>
+                                        </li>
+                                    </ul>
+						</li>
+						<li>
+							<a href="#" target="_blank">
+							<i class="glyphicon glyphicon-ok"></i>
+							Health & Welfare </a>
+						</li>
+						<li>
+							<a href="#">
+							<i class="glyphicon glyphicon-flag"></i>
+							Art & Culture </a>
+						</li>
+                                                <li>
+							<a href="#" target="_blank">
+							<i class="glyphicon glyphicon-ok"></i>
+							Social & Security</a>
+						</li>
+                                                <li>
+							<a href="#" target="_blank">
+							<i class="glyphicon glyphicon-ok"></i>
+							Women Welfare </a>
+						</li>
+					</ul>
+				</div>
+                </div>
+                <div class="col-md-7 center-menu-div sub-divs">
+                    <h3 class="column-title">General Updates</h3>
+                    
+                    <ul class="messages">
+                                                        <li>
+                                                            <img alt="Avatar" class="avatar" src="img/img.jpg">
+                                                            <div class="message_date">
+                                                                <h3 class="date text-info">24</h3>
+                                                                <p class="month">May</p>
+                                                            </div>
+                                                            <div class="message_wrapper">
+                                                                <h4 class="heading">Desmond Davison</h4>
+                                                                <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
+                                                                <br>
+                                                               
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <img alt="Avatar" class="avatar" src="img/img.jpg">
+                                                            <div class="message_date">
+                                                                <h3 class="date text-error">21</h3>
+                                                                <p class="month">May</p>
+                                                            </div>
+                                                            <div class="message_wrapper">
+                                                                <h4 class="heading">Brian Michaels</h4>
+                                                                <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
+                                                                <br>
+                                                               
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <img alt="Avatar" class="avatar" src="img/img.jpg">
+                                                            <div class="message_date">
+                                                                <h3 class="date text-info">24</h3>
+                                                                <p class="month">May</p>
+                                                            </div>
+                                                            <div class="message_wrapper">
+                                                                <h4 class="heading">Desmond Davison</h4>
+                                                                <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
+                                                                <br>
+                                                               
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <img alt="Avatar" class="avatar" src="img/img.jpg">
+                                                            <div class="message_date">
+                                                                <h3 class="date text-error">21</h3>
+                                                                <p class="month">May</p>
+                                                            </div>
+                                                            <div class="message_wrapper">
+                                                                <h4 class="heading">Brian Michaels</h4>
+                                                                <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
+                                                                <br>
+                                                               
+                                                            </div>
+                                                        </li>
+
+                                                    </ul>
+                    
+                    
+                    
+                     <ul class="pagination pagination-panel pull-right">
+      <li><a href="#">«</a></li>
+      <li class="active"><a href="#">1</a></li>
+      <li><a href="#">2</a></li>
+      <li><a href="#">3</a></li>
+      <li><a href="#">4</a></li>
+      <li><a href="#">5</a></li>
+      <li><a href="#">»</a></li>
+    </ul>
+                    
+                </div>
+                <div class="col-md-3 column-left sub-divs">
+    <div class="x_panel">
+                                <div class="x_title">
+                                    <h3 class="column-title" >Top Notifications </h3>
+                                    
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+                                    <article class="media event">
+                                       
+                                        <div class="media-body">
+                                            
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing dolor sit amet, consectetur adipiscingv elit.</p>
+                                        </div>
+                                    </article>
+                                    <article class="media event">
+                                        
+                                        <div class="media-body">
+                                            
+                                            <p>Lorem ipsum dolor sit amet, consectetur dolor sit amet, consectetur adipiscingdolor sit amet, consectetur adipiscingadipiscing elit.</p>
+                                        </div>
+                                    </article>
+                                    <article class="media event">
+                                        
+                                        <div class="media-body">
+                                            
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                        </div>
+                                    </article>
+                                    <article class="media event">
+                                        
+                                        <div class="media-body">
+                                            
+                                            <p>Lorem ipsum dolor sit amet, consectetur dolor sit amet, consectetur adipiscing adipiscing elit.</p>
+                                        </div>
+                                    </article>
+                                    <article class="media event">
+                                        
+                                        <div class="media-body">
+                                            
+                                            <p>Lorem ipsum dolor sit amet, consectetur dolor sit amet, consectetur adipiscingdolor sit amet, consectetur adipiscing adipiscing elit.</p>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid Section -->
+  
+ 
+    <!-- Team Section -->
+  
+
+<!--     Clients Aside 
+    <aside class="clients">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <a href="#">
+                        <img src="img/logos/envato.jpg" class="img-responsive img-centered" alt="">
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="#">
+                        <img src="img/logos/designmodo.jpg" class="img-responsive img-centered" alt="">
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="#">
+                        <img src="img/logos/themeforest.jpg" class="img-responsive img-centered" alt="">
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="#">
+                        <img src="img/logos/creative-market.jpg" class="img-responsive img-centered" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </aside>
+    -->
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright">Copyright &copy; Your Website 2014</span>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                        <li><a href="#"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li><a href="#">Privacy Policy</a>
+                        </li>
+                        <li><a href="#">Terms of Use</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">User Registration</h4>
+      </div>
+      <div class="modal-body">
+       
+          <form>
+              <div class="col-md-6 form-group">
+                  <label for="exampleInputEmail1">Name <span>*</span></label>
+    <input type="email" class="form-control"  >
+  </div>
+              <div class="col-md-6 form-group">
+    <label for="exampleInputEmail1">Email Address <span>*</span></label>
+    <input type="email" class="form-control"  >
+  </div>
+  <div class="col-md-6 form-group">
+    <label for="exampleInputEmail1">Id Proof <span>*</span></label>
+    <input type="email" class="form-control"  >
+  </div>
+  <div class="col-md-6 form-group">
+    <label for="exampleInputPassword1">Password <span>*</span></label>
+    <input type="password" class="form-control"  >
+  </div>
+              <div class="col-md-6 form-group">
+    <label for="exampleInputEmail1">Profession <span>*</span></label>
+    <input type="email" class="form-control" >
+  </div>
+              <div class="col-md-6 form-group">
+    <label for="exampleInputEmail1">Contact Number <span>*</span></label>
+    <input type="email" class="form-control" >
+  </div>
+  <div class="col-md-6 form-group">
+    <label for="exampleInputFile">Profile Pic</label>
+    <input type="file" id="exampleInputFile">
+    <p class="help-block">Example block-level help text here.</p>
+  </div>
+              
+  <div class="col-md-6 form-group">
+      <label>Contributions <span>*</span></label>
+   <br>
+      <input type="checkbox"> General Updates <br>
+      <input type="checkbox"> Health & Welfare<br>
+      <input type="checkbox"> Career & Education<br>
+      <input type="checkbox"> Social & Security<br>
+      <input type="checkbox"> Art & Culture<br>
+      <input type="checkbox"> Women welfare
+    
+  </div>
+ 
+</form>
+          
+      </div>
+      <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+    <!-- Portfolio Modals -->
+    <!-- Use the modals below to showcase details about your portfolio projects! -->
+
+    <!-- Portfolio Modal 1 -->
+  
+
+
+    <!-- jQuery -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular-animate.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.10.3/TweenMax.min.js"></script>
+    <script src="app/app.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/cbpAnimatedHeader.js"></script>
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+    <script src="js/agency.js"></script>
+
+
+     </body>
+   
+</html>
