@@ -1,0 +1,138 @@
+   <header>
+        
+           <div class="container slider">
+    <img ng-repeat="slide in slides" class="slide slide-animation"
+        ng-hide="!isCurrentSlideIndex($index)" ng-src="{{slide.image}}">
+
+    <a class="arrow prev" href="#" ng-click="nextSlide()"></a>
+    <a class="arrow next" href="#" ng-click="prevSlide()"></a>
+    <nav class="navimg">
+        <div class="wrapper">
+            <ul class="dots">
+                <li class="dot" ng-repeat="slide in slides">
+                    <a href="#" ng-class="{'active':isCurrentSlideIndex($index)}"
+                      ng-click="setCurrentSlideIndex($index);">{{slide.description}}</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+</div>
+        
+<!--        <div class="container">
+            <div class="intro-text">
+                <div class="intro-lead-in">Welcome To Our Studio!</div>
+                <div class="intro-heading">It's Nice To Meet You</div>
+                <a href="#services" class="page-scroll btn btn-xl">Tell Me More</a>
+            </div>
+        </div>-->
+
+    </header>
+
+    <!-- Services Section -->
+   <ui-view> </ui-view>
+            
+            <!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">User Registration</h4>
+      </div>
+        <form name="userForm" class="css-form" ng-submit="userForm.$valid && saveUser()" novalidate>
+      <div class="modal-body">
+       
+          <fieldset class="scheduler-border col-md-6">
+              <div class="col-md-12 form-group" ng-class="{true: 'has-error'} [userForm.firstName.$invalid && submitted ]">
+                  <label for="firstName">First Name <span>*</span></label>
+    <input type="text" class="form-control"  ng-model="user.firstName"   name="firstName" required>
+    
+    <p ng-show="userForm.firstName.$invalid && submitted" class="help-block">You first name is required.</p>
+    
+  </div>
+               <div class="col-md-12 form-group" ng-class="{true: 'has-error'}[userForm.lastName.$invalid && submitted]">
+                  <label for="exampleInputEmail1">Last Name <span>*</span></label>
+    <input type="text" class="form-control"  ng-model="user.lastName"   name="lastName" required>
+    
+    <p ng-show="userForm.lastName.$invalid && submitted" class="help-block">You last name is required.</p>
+    
+  </div>
+              <div class="col-md-12 form-group" ng-class="{true: 'has-error'}[userForm.emailId.$invalid && submitted]">
+    <label for="exampleInputEmail1">Email Address <span>*</span></label>
+    <input type="email" class="form-control"  ng-model="user.emailId" name="emailId" required>
+     <div ng-show="submitted || userForm.emailId.$touched">
+      <span ng-show="userForm.emailId.$error.required">Tell us your email.</span>
+      <span ng-show="userForm.emailId.$error.email">This is not a valid email.</span>
+    </div>
+  </div>
+              <div class="col-md-12 form-group" ng-class="{true: 'has-error'}[userForm.password.$invalid && submitted]">
+    <label for="exampleInputPassword1">Password <span>*</span></label>
+    <input type="password" class="form-control"  name = "password" ng-model="user.password" required>
+    <p ng-show="userForm.password.$invalid && submitted" class="help-block">Password is required.</p>
+  </div>
+              <div class="col-md-12 form-group" ng-class="{true: 'has-error'}[userForm.contactNumber.$invalid && submitted]">
+    <label for="exampleInputEmail1">Contact Number <span>*</span></label>
+    <input type="text" class="form-control" ng-model="user.contactNumber" name="contactNumber" required>
+    <p ng-show="userForm.contactNumber.$invalid && submitted" class="help-block">contact Number is required.</p>
+  </div>
+              <div class="col-md-12 form-group" ng-class="{true: 'has-error'}[userForm.fileToUpload.$invalid && submitted]">
+    <label for="exampleInputFile">Profile Pic</label>
+     
+  <div class="button" ngf-select ng-model="user.fileToUpload" name="fileToUpload" ngf-pattern="'*'"
+    ngf-accept="'*'" ngf-max-size="20MB" ngf-min-height="100" ng-change ="uploadImg(user.fileToUpload)"
+    required>
+      <div class="imgT"><img src = "{{imgPic}}" class="imgPic"/></div><span>{{selectImg}}</span></div>
+<!--    <input type="file" name="fileToUpload" ng-model="" id="exampleInputFile" >-->
+    <p ng-show="userForm.fileToUpload.$invalid && submitted" class="help-block">Example block-level help text here.</p>
+  </div>
+          </fieldset>
+              
+          <fieldset class="scheduler-border col-md-6">
+               <div class="col-md-12 form-group" ng-class="{true: 'has-error'}[userForm.profession.$invalid && submitted]">
+    <label for="exampleInputEmail1">Profession <span>*</span></label>
+    <input type="text" class="form-control" ng-model="user.profession" name="profession" required>
+    <p ng-show="userForm.profession.$invalid && submitted" class="help-block">Profession is required.</p>
+  </div>
+              <div class="col-md-12 form-group" ng-class="{true: 'has-error'}[userForm.idProofType.$invalid && submitted]">
+    <label for="exampleInputEmail1">Select Id Proof Type<span>*</span></label>
+    <select name="idProofType" id="idProofType" ng-model="user.idProofType" class="form-control" ng-change="idProofSelect(user.idProofType)" ng-options='t.label for t in idProofOptions' required>
+        <option value="">Select Options</option>
+      <option ng-repeat="option in idProofOptions" value="{{option.id}}">{{option.label}}</option>
+    </select>
+    <p ng-show="userForm.idProofType.$invalid && submitted" class="help-block">You first name is required.</p>
+  </div>
+               <div class="col-md-12 form-group" ng-show="lIdProofName" ng-class="{true: 'has-error'}[userForm.idProofName.$invalid && submitted]">
+    <label for="exampleInputEmail1">Id Proof Name <span>*</span></label>
+    <input type="text" class="form-control" ng-model="user.idProofName" name="idProofName" required>
+    <p ng-show="userForm.idProofName.$invalid && submitted" class="help-block">Id Proof Name is required.</p>
+  </div>
+              <div class="col-md-12 form-group" ng-class="{true: 'has-error'}[userForm.idProofValue.$invalid && submitted]">
+    <label for="exampleInputEmail1">Id Proof Number<span>*</span></label>
+    <input type="text" class="form-control" ng-model="user.idProofValue" name="idProofValue" required>
+    <p ng-show="userForm.idProofValue.$invalid && submitted" class="help-block">Id Proof Number is required.</p>
+  </div>
+               <div class="col-md-12 form-group" ng-class="{true: 'has-error'}[userForm.contributions.$invalid && submitted]">
+      <label>Contributions <span>*</span></label>
+   
+   <div ng-repeat="role in contributions">
+    <input type="checkbox" checklist-model="user.contributions" checklist-value="role.id" > {{role.label}} 
+</div>
+<p ng-show="userForm.contributions.$invalid && submitted" class="help-block">contributions is required.</p>
+  </div>
+ 
+          </fieldset>
+    
+      </div>
+      <div class="modal-footer">
+          <button type="submit" class="btn btn-primary"  ng-click="submitted=true">Save</button>
+        <button type="button" class="btn btn-default" id="dismissModal" data-dismiss="modal">Close</button>
+      </div>
+        </form>
+    </div>
+
+  </div>
+</div>
+            
+     

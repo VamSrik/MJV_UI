@@ -1,0 +1,32 @@
+ <div>
+ <div class="container">
+
+        <!-- Introduction Row -->
+        <div class="row topMargin">
+            <div class="col-lg-12">
+                <h1 class="page-header">About Us </h1>
+                <p>Mana JRG Vaaradhi is an NGO which is mainly formed by a group of volunteers from JRG on a motto that Mother and Mother Land should not be ignored.
+                   The main objective of the NGO is to serve the JRG people via online website interface and thus work for the growth of the JRG.
+                   This is a center stage for all the people of JRG anytime, anywhere and for any type of service.
+                   This Foundation is purely formed with a motive to serve the people of our own JRG and to make everyone feel proud in belonging to JRG.                
+                </p>
+            </div>
+        </div>
+
+        <!-- Team Members Row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="page-header">Our Team</h2>
+            </div>
+            <div class="col-lg-4 col-sm-6 " ng-repeat="mjv_team_member in mjv_team_members">
+                <img class="img-circle img-responsive img-center" src="{{mjv_team_member.path}}" width="200px" height="200px" alt="">
+                <h3>{{mjv_team_member.name}}
+                    <small>{{mjv_team_member.jobtitle}}</small>
+                </h3>
+                <p>{{mjv_team_member.aboutMember}}</p>
+            </div>            
+        </div>
+                
+    </div>
+    <!-- /.container -->
+   </div>
