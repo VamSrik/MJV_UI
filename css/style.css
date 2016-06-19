@@ -1,0 +1,1074 @@
+body{
+    background-color: #f8f8f8;
+    min-width:990px;
+    height: 100% !important;
+}
+.endHeight{
+    border: 1px solid red;
+    height: calc(100% - 100px);
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover
+{
+    background-color: transparent;  
+    color:#fed136;
+}
+.navbar-nav > li > .dropdown-menu 
+{
+    padding: 10px;
+    width: 280px;
+}
+.navbar-nav > li > .dropdown-menu li
+{
+    padding: 5px;
+
+}
+.dropdown-menu 
+{
+    left: 0px !important;
+    margin-top: 10px !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+.dropdownLayout span:nth-child(2){
+    float:  right;
+
+}
+.dropdownLayout span:nth-child(1){
+    float:  left;
+    font-size: 12px;
+    margin-top: 10px;
+    color: #2686d7;
+}
+.dropdownLayout span:nth-child(1):hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+.dropdownLayout {
+    font-family: "sans-serif";
+    letter-spacing: 1px;
+}
+.logoimg{
+    background-image: url(../img/mjv.png);
+    width:95px;
+    height: 82px;
+    
+    background-size:100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    
+    background-color: #fff;
+}
+.logoimgTit
+{
+  background-image: url(../img/mjvtit.png);
+    
+    padding: 90px;
+    top:40px;
+    margin-left: 80px;
+    background-size:100%;
+    background-repeat: no-repeat;
+    position: absolute;   
+}
+.logo-label
+{
+    border-bottom: 2px solid #e33000;
+
+    bottom: 20px;
+    color: #fff;
+    display: block;
+    font-size: 10px;
+    margin-left: -19px;
+    position: absolute;
+    font-family: "sans-serif";
+
+}
+.logo-sublabel
+{
+
+    position: absolute;
+    font-family: "sans-serif";
+    bottom: 10px;
+    font-size: 9px;
+    text-align: justify;
+    width: 110px;
+    letter-spacing: 2.1px;
+    padding-top: 2px;
+    color:#a6a5a5;
+    margin-left: -19px;
+}
+.navbar{
+    /*    background-color: #000;
+        opacity: 0.7;
+        filter: alpha(opacity=40);  For IE8 and earlier */
+}
+
+.glasslay{
+    width: 100%;
+    padding: 10px;
+    height: 100px;
+    background-color: #000;
+    opacity: 0.7;
+    filter: alpha(opacity=40); 
+    position: fixed;
+    top:0px;
+}
+
+.slider {
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+    background: #e6e6e6;
+
+
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:100%;
+
+
+}
+
+.arrow {
+    position: absolute;
+    z-index: 1002;
+    display: block;
+    top: 50%;
+    margin-top: -35px;
+    width: 36px;
+    height: 71px;
+    outline: none;
+    cursor: pointer;
+   background-color: #337ab7;
+}
+
+.arrow.prev {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 30px auto;
+    left: 0;
+    padding: 30px;
+     background-image:  url('../img/arr-r.png');
+}
+.sub-tabs{
+    margin-top: -10px;
+    width: 100%;
+}
+.subNav li{
+    list-style: none;
+    display: table-cell;
+
+
+}
+.subNav li a{
+
+    padding: 22px 20px;
+    font-size: 16px;
+    color: #f3f4f6 !important;
+    font-family: "sans-serif";
+    font-weight: normal;
+    text-decoration: none;
+}
+
+.subNav li a:hover{
+    background-color: #6183c8;
+}
+.subNav{
+
+    margin: 0 auto !important;
+    width: 650px;
+}
+.container
+{
+    padding: 0px;
+}
+.sec-menu{
+    padding: 20px;
+    background-color: #8aa6e1;
+
+
+}
+.arrow.next {
+   background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 30px auto;
+    right: 0;
+    padding: 30px;
+     background-image:  url('../img/arr-l.png');
+}
+
+.arrow.prev:hover {
+    
+/*    background-image: url(../assets/img/paddle_prev_fff.png);*/
+}
+
+.arrow.next:hover {
+/*    opacity: 1;
+    background-image: url(../assets/img/paddle_next_fff.png);*/
+}
+
+
+
+/*---------------------------------------------------------
+NAV
+---------------------------------------------------------*/
+.navimg {
+    text-align: center;
+    display: block;
+    position: absolute;
+    z-index: 1002;
+    left: 0;
+    bottom: -4px;
+    right: 0;
+    height: 48px;
+}
+
+.navimg .wrapper {
+    margin: 0 auto;
+    width: 100%;
+    padding: 1em 0 .8em;
+}
+
+.navimgul {
+    margin: 0;
+    width: 100%;
+}
+
+.navimg .dot, .navimg .dot a {
+    display: inline-block;
+    zoom: 1;
+}
+
+
+.nonDraggableImage{
+    -webkit-user-drag: none;
+}
+
+.wrapper {
+    margin: 0 auto;
+    width: 100%;
+    padding: 1em 0 .8em;
+}
+
+
+
+.dot, .navimg .dot a {
+    display: inline-block;
+    zoom: 1;
+}
+
+.dots .dot {
+    position: relative;
+    margin: 0 8px;
+    width: 12px;
+    height: 12px;
+}
+
+.dots .dot a {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 6px;
+    height: 6px;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    background: #FFF;
+    border: 1px solid transparent;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    -webkit-transition: background-color 0.25s, border-color 0.25s;
+    -moz-transition: background-color 0.25s, border-color 0.25s;
+    transition: background-color 0.25s, border-color 0.25s;
+}
+
+.dots .dot a.active {
+    border-color: #FFF;
+    background-color: transparent;
+}
+.navbar-fixed-top {
+    border: none;
+    top: 0;
+/*   -webkit-box-shadow: 0px 12px 4px -10px rgba(120,120,120,1);
+-moz-box-shadow: 0px 12px 4px -10px rgba(120,120,120,1);
+box-shadow: 0px 12px 4px -10px rgba(120,120,120,1);*/
+}
+.headerLabel
+{
+
+}
+.alert
+{
+    position: fixed;
+    z-index: 1000;
+    bottom: 10px;
+    right: 20px;
+}
+.profilePic
+{
+
+    border-radius: 15px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    padding: 6px 15px;
+    margin-right: 5px;
+}
+
+#proLink span
+{
+
+
+}
+.menuProfilePic
+{
+    height: 200px;
+    width: 246px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+}
+.menuProfilePic label
+{
+    background-color: #337ab7;
+    bottom: 49px;
+    color: #ffffff;
+    font-weight: normal;
+    opacity: 0.7;
+    padding: 10px;
+    position: absolute;
+    text-align: center;
+    width: 246px;
+
+}
+.alertInfo
+{
+
+    background-color: #fff;
+    -webkit-box-shadow: 0px 0px 6px 1px rgba(119,119,119,1);
+    -moz-box-shadow: 0px 0px 6px 1px rgba(119,119,119,1);
+    box-shadow: 0px 0px 6px 1px rgba(119,119,119,1);
+    left: 40%;
+    min-width: 300px;
+
+    position: fixed;
+    top: 40%;
+    z-index: 1100;
+    text-align: center;
+}
+.alertInfoHead{
+    background-color: #2686d7;
+    padding: 10px;
+    color: #fff;
+    font-weight: bold;
+}
+.alertInfoBody
+{
+    padding: 10px;
+    min-height: 100px;
+}
+.alertInfoFooter
+{
+    border-top:1px solid #cecece;
+    padding: 10px;
+    width: 100%;
+    text-align: right;
+}
+.alertInfoFooter button
+{
+
+
+}
+.scheduler-border
+{
+
+}
+.topMargin
+{
+    margin-top:80px;
+}
+.filePic
+{
+    width: 36px;
+}
+.topMargin1
+{
+    margin-top:90px;
+}
+.imgT{
+    display: none;
+
+}
+.bgIFile
+{
+    background-color: #f6f6f6;
+    padding:5px;
+    border:1px solid #e7e7e7;
+    width:300px;
+    text-align: left;
+    margin: 5px;
+    min-height: 50px;
+    border-radius: 5px;
+}
+.bgIFile span{
+    margin-right: 5px;
+}
+.imgPic{
+    width:90px;
+
+}
+.closeImg{
+    background-image: url("../img/close.png");
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    cursor: pointer;
+    float: right;
+    padding: 12px;
+    background-position: center center;
+    margin-top: 8px;
+}
+.text-red {
+    color:#E52A3A;
+}
+
+.text-gray {
+    color:#5f5f5f;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Editor styling */
+
+.ta-toolbar {
+    background-color: #F0F0F0;
+    padding: 10px 10px 5px;
+    margin-left: 0px; /* Override bootstrap */
+    border: 1px solid #EEE;
+}
+
+.ta-toolbar .btn-group {
+    margin-bottom: 5px;
+}
+
+.ta-editor, .white-box {
+    padding: 10px;
+    background-color: #FFF;
+    border: 1px solid #EEE;
+}
+
+textarea.ta-bind {
+    width: 100%;
+}
+.addFiles
+{
+    background-color: #575757;
+    padding: 10px;
+    cursor: pointer;
+    color: #fff;
+}
+.attachmentBox
+{
+    margin-top: 10px;
+    background-color: #fbfbfb;
+    height: 150px;
+    overflow-x:hidden;
+    overflow-y: auto;
+    border: 1px dashed #cecece;
+}
+.form-horizontal label
+{
+    font-weight: normal;
+    color:#333;
+    letter-spacing: 1px;
+    font-family: sans-serif;
+    font-size: 12px;
+}
+.help-block
+{
+    font-size: 10px;
+    position: absolute;
+    margin-top: 0px;
+
+}
+.form-group
+{
+    margin-bottom: 25px;
+}
+
+
+
+
+.ui-select-highlight {
+    font-weight: bold;
+}
+
+.ui-select-offscreen {
+    clip: rect(0 0 0 0) !important;
+    width: 1px !important;
+    height: 1px !important;
+    border: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    position: absolute !important;
+    outline: 0 !important;
+    left: 0px !important;
+    top: 0px !important;
+}
+
+
+.ui-select-choices-row:hover {
+    background-color: #f5f5f5;
+}
+
+/* Select2 theme */
+
+/* Mark invalid Select2 */
+.ng-dirty.ng-invalid > a.select2-choice {
+    border-color: #D44950;
+}
+
+.select2-result-single {
+    padding-left: 0;
+}
+
+.select2-locked > .select2-search-choice-close{
+    display:none;
+}
+
+.select-locked > .ui-select-match-close{
+    display:none;
+}
+
+body > .select2-container.open {
+    z-index: 9999; /* The z-index Select2 applies to the select2-drop */
+}
+
+/* Handle up direction Select2 */
+.ui-select-container[theme="select2"].direction-up .ui-select-match {
+    border-radius: 4px; /* FIXME hardcoded value :-/ */
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.ui-select-container[theme="select2"].direction-up .ui-select-dropdown {
+    border-radius: 4px; /* FIXME hardcoded value :-/ */
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+
+    border-top-width: 1px;  /* FIXME hardcoded value :-/ */
+    border-top-style: solid;
+
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.25);
+
+    margin-top: -4px; /* FIXME hardcoded value :-/ */
+}
+.ui-select-container[theme="select2"].direction-up .ui-select-dropdown .select2-search {
+    margin-top: 4px; /* FIXME hardcoded value :-/ */
+}
+.ui-select-container[theme="select2"].direction-up.select2-dropdown-open .ui-select-match {
+    border-bottom-color: #5897fb;
+}
+
+/* Selectize theme */
+
+/* Helper class to show styles when focus */
+.selectize-input.selectize-focus{
+    border-color: #007FBB !important;
+}
+
+/* Fix input width for Selectize theme */
+.selectize-control > .selectize-input > input {
+    width: 100%;
+}
+
+/* Fix dropdown width for Selectize theme */
+.selectize-control > .selectize-dropdown {
+    width: 100%;
+}
+
+/* Mark invalid Selectize */
+.ng-dirty.ng-invalid > div.selectize-input {
+    border-color: #D44950;
+}
+
+/* Handle up direction Selectize */
+.ui-select-container[theme="selectize"].direction-up .ui-select-dropdown {
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.25);
+
+    margin-top: -2px; /* FIXME hardcoded value :-/ */
+}
+
+/* Bootstrap theme */
+
+/* Helper class to show styles when focus */
+.btn-default-focus {
+    color: #333;
+    background-color: #EBEBEB;
+    border-color: #ADADAD;
+    text-decoration: none;
+    outline: 5px auto -webkit-focus-ring-color;
+    outline-offset: -2px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+.ui-select-bootstrap .ui-select-toggle {
+    position: relative;
+}
+
+.ui-select-bootstrap .ui-select-toggle > .caret {
+    position: absolute;
+    height: 10px;
+    top: 50%;
+    right: 10px;
+    margin-top: -2px;
+}
+
+/* Fix Bootstrap dropdown position when inside a input-group */
+.input-group > .ui-select-bootstrap.dropdown {
+    /* Instead of relative */
+    position: static;
+}
+
+.input-group > .ui-select-bootstrap > input.ui-select-search.form-control {
+    border-radius: 4px; /* FIXME hardcoded value :-/ */
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.input-group > .ui-select-bootstrap > input.ui-select-search.form-control.direction-up {
+    border-radius: 4px !important; /* FIXME hardcoded value :-/ */
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+.ui-select-bootstrap > .ui-select-match > .btn{
+    /* Instead of center because of .btn */
+    text-align: left !important;
+}
+
+.ui-select-bootstrap > .ui-select-match > .caret {
+    position: absolute;
+    top: 45%;
+    right: 15px;
+}
+
+/* See Scrollable Menu with Bootstrap 3 http://stackoverflow.com/questions/19227496 */
+.ui-select-bootstrap > .ui-select-choices ,.ui-select-bootstrap > .ui-select-no-choice {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+    margin-top: -1px;
+}
+
+body > .ui-select-bootstrap.open {
+    z-index: 1000; /* Standard Bootstrap dropdown z-index */
+}
+
+.ui-select-multiple.ui-select-bootstrap {
+    height: auto;
+    padding: 3px 3px 0 3px;
+}
+
+.ui-select-multiple.ui-select-bootstrap input.ui-select-search {
+    background-color: transparent !important; /* To prevent double background when disabled */
+    border: none;
+    outline: none;
+    height: 1.666666em;
+    margin-bottom: 3px;
+}
+
+.ui-select-multiple.ui-select-bootstrap .ui-select-match .close {
+    font-size: 1.6em;
+    line-height: 0.75;
+}
+
+.ui-select-multiple.ui-select-bootstrap .ui-select-match-item {
+    outline: 0;
+    margin: 0 3px 3px 0;
+}
+
+.ui-select-multiple .ui-select-match-item {
+    position: relative;
+}
+
+.ui-select-multiple .ui-select-match-item.dropping .ui-select-match-close {
+    pointer-events: none;
+}
+
+.ui-select-multiple:hover .ui-select-match-item.dropping-before:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 100%;
+    height: 100%;
+    margin-right: 2px;
+    border-left: 1px solid #428bca;
+}
+
+.ui-select-multiple:hover .ui-select-match-item.dropping-after:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 100%;
+    height: 100%;
+    margin-left: 2px;
+    border-right: 1px solid #428bca;
+}
+
+.ui-select-bootstrap .ui-select-choices-row>a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+}
+
+.ui-select-bootstrap .ui-select-choices-row>a:hover, .ui-select-bootstrap .ui-select-choices-row>a:focus {
+    text-decoration: none;
+    color: #262626;
+    background-color: #f5f5f5;
+}
+
+.ui-select-bootstrap .ui-select-choices-row.active>a {
+    color: #fff;
+    text-decoration: none;
+    outline: 0;
+    background-color: #428bca;
+}
+
+.ui-select-bootstrap .ui-select-choices-row.disabled>a,
+.ui-select-bootstrap .ui-select-choices-row.active.disabled>a {
+    color: #777;
+    cursor: not-allowed;
+    background-color: #fff;
+}
+
+/* fix hide/show angular animation */
+.ui-select-match.ng-hide-add,
+.ui-select-search.ng-hide-add {
+    display: none !important;
+}
+
+/* Mark invalid Bootstrap */
+.ui-select-bootstrap.ng-dirty.ng-invalid > button.btn.ui-select-match {
+    border-color: #D44950;
+}
+
+/* Handle up direction Bootstrap */
+.ui-select-container[theme="bootstrap"].direction-up .ui-select-dropdown {
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.25);
+}
+.select2 > .select2-choice.ui-select-match {
+    /* Because of the inclusion of Bootstrap */
+    height: 29px;
+}
+
+.selectize-control > .selectize-dropdown {
+    top: 36px;
+}
+/* Some additional styling to demonstrate that append-to-body helps achieve the proper z-index layering. */
+.select-box {
+    background: #fff;
+    position: relative;
+    z-index: 1;
+}
+.alert-info.positioned {
+    margin-top: 1em;
+    position: relative;
+    z-index: 10000; /* The select2 dropdown has a z-index of 9999 */
+}
+.selectBoxui
+{
+    text-align: left;
+}
+.tablayout-list li
+{
+    float: left;
+    list-style: none;
+    margin-right: 10px;
+}
+.commentBox
+{
+    border: 1px solid #cecece;
+    border-radius: 5px;
+   
+
+}
+.comment-view
+{
+    min-height: 100px;
+    max-height: 300px;
+    padding: 5px;
+    text-align: left;
+    
+}
+.commentList {
+    padding:0;
+    list-style:none;
+    max-height:200px;
+    overflow:auto;
+}
+.commentList li {
+    
+    margin:10px;
+    border-bottom: 1px solid #f1f1f1;
+    padding: 10px;
+}
+.commentList li > div {
+    display:table-cell;
+}
+.commenterImage {
+    width:30px;
+    margin-right:5px;
+    height:100%;
+    float:left;
+}
+.commenterImage img {
+    width:100%;
+    border-radius:50%;
+}
+.commentText p {
+    margin:0;
+}
+.sub-text {
+    color:#aaa;
+    font-family:"sans-serif";
+    font-size:11px;
+}
+.titleBox {
+    background-color:#fdfdfd;
+    padding:10px;
+}
+.titleBox label{
+  color:#444;
+  margin:0;
+  display:inline-block;
+}
+.comment-text{
+    margin: 10px;
+}
+.richCnt
+{
+    min-height: 200px;
+}
+.service-menu
+{
+padding: 0px !important;
+width: auto !important;
+margin-top: 18px !important;
+border:none;
+}
+.service-menu li
+{
+padding: 0px !important;    
+}
+.service-menu li a:hover
+{
+    background-color: #337ab7 !important;
+    color: #fff !important;
+}
+.service-menu li a
+{
+/*    background-color: #337ab7;*/
+    cursor: pointer;
+    padding:10px;
+}
+.linehash
+{
+    margin-top: 15px;
+    color: #c1c1c1;
+}
+.sub-header-title
+{
+/*   background: #ededed none repeat scroll 0 0;*/
+    border-bottom: 1px solid #d9dee4;
+    float: left;
+    text-align: left;
+    
+    padding: 10px;
+}
+.sub-header-title label
+{
+    font-weight: normal;
+    font-size: 16px;
+}
+.center-menu-div
+{
+     background-color: #f8f8f8;
+     padding: 0px;
+    
+}
+.know-list
+{
+   
+      background-color: #fff;
+               padding: 20px;
+         
+}
+.form-horizontal
+{
+    background-color:#fff;
+    padding:30px 10px 10px 10px;
+}
+.hpanel
+{
+    margin-top: 10px;
+}
+.tab-content
+{
+    background-color: #fff;
+}
+.action-grid button
+{
+    border: none;
+    background-color: #2686d7;
+    color:#fff;
+    padding: 2px 10px 2px 10px;
+    border-radius: 3px;
+    
+}
+.status3{
+    background-color: #cecece;
+    border-radius: 10px;
+    margin-right: 5px;
+    padding: 0 9px;
+}
+.status1{
+    background-color: #4ddbff;
+    border-radius: 10px;
+    margin-right: 5px;
+    padding: 0 9px;
+}
+.status2{
+    background-color: #ffc24d;
+    border-radius: 10px;
+    margin-right: 5px;
+    padding: 0 9px;
+}
+.table-widths th{
+    width: auto !important;
+}
+.x_panel {
+    background: #fff none repeat scroll 0 0;
+    border: 1px solid #e6e9ed;
+    display: inline-block;
+    margin-bottom: 10px;
+    opacity: 1;
+    padding: 10px 17px;
+    position: relative;
+    transition: all 0.2s ease 0s;
+    width: 100%;
+    color:#333;
+    
+}
+.tile {
+    overflow: hidden;
+}
+.x_title {
+    border-bottom: 2px solid #e6e9ed;
+    margin-bottom: 10px;
+   
+}
+.x_title h2
+{
+    font-size: 18px;
+    margin-top: 10px;
+    color: #333;
+}
+.x_content {
+    clear: both;
+    float: left;
+    margin-top: 5px;
+    padding: 0 5px 6px;
+    position: relative;
+    width: 100%;
+}
+.sideHeader
+{
+    color: #dfeffd;
+    margin: 0px;
+    padding: 15px;
+    -webkit-box-shadow: 0px 6px 0px 0px rgba(0,0,0,0.09);
+-moz-box-shadow: 0px 6px 0px 0px rgba(0,0,0,0.09);
+box-shadow: 0px 6px 0px 0px rgba(0,0,0,0.09);
+            font-size: 18px;
+           letter-spacing: 1px;
+            z-index: 10;
+}
+.side-menu
+{
+    margin-top: 5px;
+}
+.attachmentDetails
+{
+    
+    border-top:1px solid #f8f8f8;
+    padding: 20px;
+    background-color: #fff;
+    margin-bottom: 10px;
+}
+.attach
+{
+    background-image: url('../img/attach.png');
+    background-repeat: no-repeat;
+    padding: 10px 10px 10px 30px;
+    background-size: 24px;
+    background-position: left center;
+    color: #5897fb;
+    cursor: pointer;
+}
+.shareLink
+{
+    float: right;
+    color: #5897fb;
+}
+.shareLink i
+{
+    background-image: url('../img/facebook.png');
+    background-repeat: no-repeat;
+    padding: 10px 20px;
+    background-position: center;
+    
+    cursor: pointer;
+}
+.fixed
+{
+    position: fixed;
+    
+    top:87px;
+    z-index: 1000;
+}
+.center-nav
+{
+    margin-left: 250px;
+}
+.right-nav
+{
+     position: fixed;
+    
+    top:87px;
+    right: 0px;
+    
+   
+}
+.ng-scope
+{
+    height: 100%;
+}
+.x_title button
+{
+    top:10px;
+    right: 10px;
+    position: absolute;
+}

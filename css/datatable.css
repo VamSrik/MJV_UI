@@ -1,0 +1,14 @@
+.dataTable
+{
+    padding: 10px;
+    width: 100%;
+        
+}
+.dataTable td, .dataTable th
+{
+    border: 1px solid #cecece;
+    border-spacing: 0px;
+    border-collapse: collapse;
+    padding: 10px;
+    text-align: center;
+}
