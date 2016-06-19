@@ -1,0 +1,30 @@
+
+                <div class="col-md-2 left-menu-div sub-divs">
+                    <h2 class="sideHeader">Need Help</h2>
+                   <div class="left-menu">
+                       
+                       
+         <ul class="nav side-menu">
+        <li ng-repeat="item in items" ng-click="showChilds($index,$event)" class="{{item.class}}">
+            <a ui-sref="{{item.link}}">
+               
+                {{item.name}}
+                
+                        </a>
+            
+            <ul class="nav side-menu sub-nav-menus">
+                <li ng-repeat="subItem in item.subItems" ng-show="item.actives" >
+                    <a class="subMenuLinks">{{subItem.name}}</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+                       
+				</div>
+                </div>
+                <div class="col-md-10 center-menu-div sub-divs">
+                    <ui-view class="col-md-12"></ui-view>
+                    
+                </div>
+                
+            

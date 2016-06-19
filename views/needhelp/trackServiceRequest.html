@@ -1,0 +1,203 @@
+<br>
+<div class="row">
+<div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="x_panel tile fixed_height_320">
+                <div class="x_title">
+                  <h2>Track Your Service Request</h2>
+                  
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+    <form class="form-horizontal" ng-submit="trackServiceRequest(data.sr_number)">
+        <div class="form-group">
+    <label class="control-label col-sm-4" for="subject"> Service Request Number:</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" ng-model="data.sr_number" id="trackYourServiceRequest" placeholder="Enter Your Service Request Number">
+    </div>
+    <div class="col-sm-2"><button class="btn-primary btn" type="submit">Track</button></div>
+  </div>
+    </form>
+                </div>
+              </div>
+</div>
+    <div class="col-md-12 col-sm-12 col-xs-12 srDetailsDiv" style="display: none">
+              <div class="x_panel tile fixed_height_320">
+                <div class="x_title">
+                  <h2>Service Request Details</h2>
+                  
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+	<form class="form-horizontal" role="form" name="editSRForm" ng-submit="editSRForm.$valid && updateServiceRequest()"
+		novalidate>
+            
+	<fieldset class="col-sm-6">	
+		<div class="form-group" >
+			<label class="control-label col-sm-4" for="category">Category Type<span>*</span></label>
+			<div class="col-sm-8" ng-class="{true: 'has-error'} [editSRForm.category.$invalid && submitted ]">
+				<select ng-model="data.portal_type" class="form-control" name="category"
+					ng-change="update(data.portal_type)" required="required"
+					ng-disabled="(data.status == 3 || data.status == 4)">
+					<option ng-repeat="option in segmentOptions" value="{{option.id}}" ng-selected="option.id == data.portal_type">{{option.name}}</option>
+				</select>	
+				<p ng-show="editSRForm.category.$invalid && submitted" class="help-block">Category Type is required.</p>	
+			</div>			 
+		</div>
+		
+		<div class="form-group">
+			<label class="control-label col-sm-4" for="service">Service Type<span>*</span></label>
+			<div class="col-sm-8" ng-class="{true: 'has-error'} [editSRForm.service.$invalid && submitted ]">
+				<select ng-model="data.service_type" class="form-control" name="service" required="required"
+						ng-disabled="(data.status == 3 || data.status == 4 || data.portal_type == 1)"> 
+					<option ng-repeat="option in serviceOptions" value="{{option.id}}" 
+							ng-selected="option.id == data.service_type">{{option.name}}</option>
+				</select>
+				<p ng-show="editSRForm.service.$invalid && submitted" class="help-block">Service Type is required.</p>
+			</div>			
+		</div>
+		
+		<div class="form-group">
+			<label class="control-label col-sm-4" for="title">Request
+				Title<span>*</span></label>
+			<div class="col-sm-8" ng-class="{true: 'has-error'} [editSRForm.title.$invalid && submitted ]">
+				<input type="text" class="form-control" ng-model="data.title" name="title" required="required"
+					id="subject" placeholder="Enter Request Title" ng-disabled="(data.status == 3 || data.status == 4)">				
+			<p ng-show="editSRForm.title.$invalid && submitted" class="help-block">Request Title is required.</p>
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<label class="control-label col-sm-4" for="description">Request
+				Description<span>*</span></label>
+			<div class="col-sm-8" ng-class="{true: 'has-error'} [editSRForm.description.$invalid && submitted ]">
+				<textarea id="requestDescription" class="form-control" required="required"
+					ng-model="data.description" name="description"
+					ng-disabled="(data.status == 3 || data.status == 4)"
+					placeholder="Enter Request Description"></textarea>
+				<p ng-show="editSRForm.description.$invalid && submitted" class="help-block">Request Description is required.</p>
+			</div>			
+		</div>	
+		
+		<div class="form-group">
+			<label class="control-label col-sm-4" for="subject">Request
+				Status</label>
+			<div class="col-sm-8">
+				<select ng-model="data.status" class="form-control" disabled>
+					<option ng-repeat="option in reqStatusOptions"
+						value="{{option.id}}" ng-selected="option.id == data.status">{{option.name}}</option>
+				</select>
+			</div>
+		</div>			
+		
+		<div class="form-group">
+			<label class="control-label col-sm-4" for="priority">Request
+				Priority<span>*</span></label>
+			<div class="col-sm-8" ng-class="{true: 'has-error'} [editSRForm.priority.$invalid && submitted ]">
+				<select ng-model="data.priority" class="form-control" name="priority" 
+						required="required" ng-disabled="(data.status == 3 || data.status == 4)">
+					<option ng-repeat="option in reqPriorityOptions"
+						value="{{option.id}}" ng-selected="option.id == data.priority">{{option.name}}</option>
+				</select>
+				<p ng-show="editSRForm.priority.$invalid && submitted" class="help-block">Request Priority is required.</p>
+			</div>			
+		</div>
+                
+
+		<div class="form-group">
+			<label class="control-label col-sm-4" for="criticality">Request
+				Criticality<span>*</span></label>
+			<div class="col-sm-8" ng-class="{true: 'has-error'} [editSRForm.criticality.$invalid && submitted ]">
+				<select ng-model="data.severity" class="form-control" name="criticality" 
+						required="required" ng-disabled="(data.status == 3 || data.status == 4)">
+					<option ng-repeat="option in reqSeverityOptions"
+						value="{{option.id}}" ng-selected="option.id == data.severity">{{option.name}}</option>
+				</select>
+				<p ng-show="editSRForm.criticality.$invalid && submitted" class="help-block">Request Criticality is required.</p>
+			</div>			
+		</div>
+		
+	
+        </fieldset>
+            <fieldset class="col-sm-6">	
+            <div class="form-group">
+			<label class="control-label col-sm-4" for="name">Requestor
+				Name<span>*</span></label>
+			<div class="col-sm-8" ng-class="{true: 'has-error'} [editSRForm.name.$invalid && submitted ]">
+				<input type="text" class="form-control" name="name" required="required"
+					ng-model="data.requestor_name" id="subject"
+					ng-disabled="(data.status == 3 || data.status == 4)"
+					placeholder="Enter Requestor Name">
+				<p ng-show="editSRForm.name.$invalid && submitted" class="help-block">Requestor Name is required.</p>
+			</div>
+			
+		</div>
+		
+		<div class="form-group">
+			<label class="control-label col-sm-4" for="email">Requestor
+				Email<span>*</span></label>
+			<div class="col-sm-8" ng-class="{true: 'has-error'} [editSRForm.email.$invalid && submitted ]">
+				<input type="email" class="form-control" name="email" required="required"
+					ng-model="data.requestor_email" placeholder="Enter Requestor Email"
+					ng-disabled="(data.status == 3 || data.status == 4)">
+				<p ng-show="editSRForm.email.$invalid && submitted" class="help-block">Requestor Email is required.</p>
+			</div>			
+		</div>
+		
+		<div class="form-group">
+			<label class="control-label col-sm-4" for="contact">Requestor
+				Contact Number<span>*</span></label>
+			<div class="col-sm-8" ng-class="{true: 'has-error'} [editSRForm.contact.$invalid && submitted ]">
+				<input type="text" id="requestorContactNumber" class="form-control" required="required"
+					ng-model="data.requestor_contact" name="contact"
+					ng-disabled="(data.status == 3 || data.status == 4)"
+					placeholder="Enter Contact Number" />
+				<p ng-show="editSRForm.contact.$invalid && submitted" class="help-block">Requestor Contact is required.</p>
+			</div>			
+		</div>		
+		
+		<div class="form-group">
+			<label class="control-label col-sm-4" for="subject">Requestor
+				Contact Address</label>
+			<div class="col-sm-8">
+				<textarea id="requestorContactAddress" class="form-control"
+					ng-model="data.requestor_address"
+					ng-disabled="(data.status == 3 || data.status == 4)"
+					placeholder="Enter Requestor Contact Address"></textarea>
+				<!--      <input type="text" class="form-control" ng-model="data.subject" id="subject" placeholder="Enter subject">-->
+			</div>
+		</div>
+		
+
+		<div class="form-group">
+      <label class="control-label col-sm-4" >Attachments:</label>
+    <div class="col-sm-8">
+  <div class="button addFiles" ngf-select ng-model="fileToUpload" name="fileToUpload" ngf-pattern="'*'"
+    ngf-accept="'*'" ngf-max-size="20MB" ngf-min-height="100" ng-change ="uploadFile(fileToUpload)"
+    required>
+      Add File
+      
+<!--    <input type="file" name="fileToUpload" ng-model="" id="exampleInputFile" >-->
+    
+  </div>
+        <div class="attachmentBox">
+        <div class="bgIFile"  ng-repeat="val in fillFiles"><span><img src = "{{val.imgPic}}" class="filePic"/></span><span>{{val.nameFile}}</span><i class="closeImg" ng-click="deleteImg(val)" ></i></div>
+        </div></div>
+  </div>
+            </fieldset>
+            
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10" style="text-align: right">
+				<button type="submit" class="btn btn-primary" ng-click="submitted=true"
+				ng-disabled="(data.status == 3 || data.status == 4)">Update</button>
+				
+				<button type="submit" class="btn btn-primary" ng-click="cancelServiceRequest(data.sr_number);"
+				ng-disabled="(data.status == 3 || data.status == 4)">Cancel SR</button>
+			</div>
+		</div>
+	</form>
+
+                </div>
+              </div>
+</div>
+</div>
