@@ -294,6 +294,40 @@ app.directive("back", function () {
         transclude: true
     }
 });
+app.directive('alphabetsOnly', function() {
+	  return {
+	    replace: true,
+	    template: '<input replace="[^a-zA-Z]" with="">'
+	  };
+});
+app.directive('numbersOnly', function() {
+	  return {
+	    replace: true,
+	    template: '<input replace="[^0-9]" with="">'
+	  };
+});
+
+app.directive('replace', function() {
+return {
+	    require: 'ngModel',
+	    scope: {
+	      regex: '@replace',
+	      with: '@with'
+	    }, 
+	    link: function(scope, element, attrs, model) {
+	      model.$parsers.push(function(val) {
+	        if (!val) { return; }
+	        var regex = new RegExp(scope.regex);
+	        var replaced = val.replace(regex, scope.with); 
+	        if (replaced !== val) {
+	          model.$setViewValue(replaced);
+	          model.$render();
+	        }         
+	        return replaced;         
+	      });
+	    }
+	  };
+});
 app.filter('propsFilter', function() {
   return function(items, props) {
     var out = [];
@@ -327,7 +361,6 @@ app.filter('propsFilter', function() {
 });
 app.factory('notify',function(){
      return function(msg,head, callback) {
-         alert(msg);
          angular.element('body').append('<div class="alertInfo"><div class="alertInfoHead">'+head+'</div><span></span><div class="alertInfoBody">'+msg+'</div><div class="alertInfoFooter"><button class="btn btn-primary">Ok</button></div></div>')
          angular.element('.alertInfoFooter button').click(function() {
              callback();
@@ -336,5 +369,7 @@ app.factory('notify',function(){
          });
      }
 });
+
+
 
 })();

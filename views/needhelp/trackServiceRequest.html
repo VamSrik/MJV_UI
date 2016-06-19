@@ -34,14 +34,16 @@
             
 	<fieldset class="col-sm-6">	
 		<div class="form-group" >
-			<label class="control-label col-sm-4" for="category">Category Type<span>*</span></label>
+			<label class="control-label col-sm-4" for="category">Segment<span>*</span></label>
 			<div class="col-sm-8" ng-class="{true: 'has-error'} [editSRForm.category.$invalid && submitted ]">
 				<select ng-model="data.portal_type" class="form-control" name="category"
 					ng-change="update(data.portal_type)" required="required"
 					ng-disabled="(data.status == 3 || data.status == 4)">
-					<option ng-repeat="option in segmentOptions" value="{{option.id}}" ng-selected="option.id == data.portal_type">{{option.name}}</option>
+					<option ng-repeat="option in segmentOptions" value="{{option.id}}" 
+							ng-selected="option.id == data.portal_type"
+							ng-hide="option.name == 'General Updates'">{{option.name}}</option>
 				</select>	
-				<p ng-show="editSRForm.category.$invalid && submitted" class="help-block">Category Type is required.</p>	
+				<p ng-show="editSRForm.category.$invalid && submitted" class="help-block">Segment is required.</p>
 			</div>			 
 		</div>
 		
@@ -124,7 +126,8 @@
 			<label class="control-label col-sm-4" for="name">Requestor
 				Name<span>*</span></label>
 			<div class="col-sm-8" ng-class="{true: 'has-error'} [editSRForm.name.$invalid && submitted ]">
-				<input type="text" class="form-control" name="name" required="required"
+				<input type="text" class="form-control" name="name" 
+				    alphabets-only required="required"
 					ng-model="data.requestor_name" id="subject"
 					ng-disabled="(data.status == 3 || data.status == 4)"
 					placeholder="Enter Requestor Name">
@@ -147,13 +150,25 @@
 		<div class="form-group">
 			<label class="control-label col-sm-4" for="contact">Requestor
 				Contact Number<span>*</span></label>
-			<div class="col-sm-8" ng-class="{true: 'has-error'} [editSRForm.contact.$invalid && submitted ]">
-				<input type="text" id="requestorContactNumber" class="form-control" required="required"
+			<div class="col-sm-8" ng-class="{true: 'has-error'} [(editSRForm.contact.$error.number || editSRForm.contact.$error.required
+								  || editSRForm.contact.$error.minlength || editSRForm.contact.$error.maxlength) && submitted ]">
+				<input type="text" id="requestorContactNumber" class="form-control" required="required" numbers-only
 					ng-model="data.requestor_contact" name="contact"
-					ng-disabled="(data.status == 3 || data.status == 4)"
-					placeholder="Enter Contact Number" />
-				<p ng-show="editSRForm.contact.$invalid && submitted" class="help-block">Requestor Contact is required.</p>
-			</div>			
+					placeholder="Enter Contact Number" 
+					ng-minlength="10" 
+                    ng-maxlength="10"
+                    maxlength="10"
+                    ng-required="true"
+                    ng-disabled="(data.status == 3 || data.status == 4)"  />
+				<span ng-show="editSRForm.contact.$error.required && submitted" class="help-block">
+						Phone number is required</span>
+				<span class="help-block" 
+                  ng-show="((editSRForm.contact.$error.minlength ||
+                           editSRForm.contact.$error.maxlength) && 
+                           editSRForm.contact.$dirty) ">
+                           Phone number should be 10 digits
+            	</span>
+			</div>						
 		</div>		
 		
 		<div class="form-group">

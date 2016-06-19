@@ -12,14 +12,13 @@
 		novalidate>
             <fieldset class="col-sm-6">
 		<div class="form-group" >
-			<label class="control-label col-sm-4" for="category">Category
-				Type<span>*</span></label>
+			<label class="control-label col-sm-4" for="category">Segment<span>*</span></label>
 			<div class="col-sm-8" ng-class="{true: 'has-error'} [srForm.category.$invalid && submitted ]">
 				<select ng-model="data.portal_type" class="form-control" name="category"
 					ng-change="update(data.portal_type)" required="required">
-					<option ng-repeat="option in segmentOptions" value="{{option.id}}">{{option.name}}</option>
+					<option ng-repeat="option in segmentOptions" value="{{option.id}}" ng-hide="option.name == 'General Updates'">{{option.name}}</option>
 				</select>	
-				<p ng-show="srForm.category.$invalid && submitted" class="help-block">Category Type is required.</p>	
+				<p ng-show="srForm.category.$invalid && submitted" class="help-block">Segment is required.</p>
 			</div>			 
 		</div>
 		
@@ -43,48 +42,45 @@
 			<div class="col-sm-8" ng-class="{true: 'has-error'} [srForm.title.$invalid && submitted ]">
 				<input type="text" class="form-control" ng-model="data.title" name="title" required="required"
 					id="subject" placeholder="Enter Request Title">				
-			<p ng-show="srForm.title.$invalid && submitted" class="help-block">Request Title is required.</p>
+			<p ng-show="srForm.title.$invalid && submitted" class="help-block">Title is required.</p>
 			</div>
 		</div>
 		
 		
 		<div class="form-group">
-			<label class="control-label col-sm-4" for="description">Request
-				Description<span>*</span></label>
+			<label class="control-label col-sm-4" for="description">Description<span>*</span></label>
 			<div class="col-sm-8" ng-class="{true: 'has-error'} [srForm.description.$invalid && submitted ]">
 				<textarea id="requestDescription" class="form-control" required="required"
 					ng-model="data.description" name="description"
 					placeholder="Enter Request Description"></textarea>
-				<p ng-show="srForm.description.$invalid && submitted" class="help-block">Request Description is required.</p>
+				<p ng-show="srForm.description.$invalid && submitted" class="help-block">Description is required.</p>
 			</div>			
 		</div>
                 <div class="form-group">
-			<label class="control-label col-sm-4" for="priority">Request
-				Priority<span>*</span></label>
+			<label class="control-label col-sm-4" for="priority">Priority<span>*</span></label>
 			<div class="col-sm-8" ng-class="{true: 'has-error'} [srForm.priority.$invalid && submitted ]">
 				<select ng-model="data.priority" class="form-control" name="priority" required="required">
 					<option ng-repeat="option in reqPriorityOptions"
 						value="{{option.id}}">{{option.name}}</option>
 				</select>
-				<p ng-show="srForm.priority.$invalid && submitted" class="help-block">Request Priority is required.</p>
+				<p ng-show="srForm.priority.$invalid && submitted" class="help-block">Priority is required.</p>
 			</div>			
 		</div>
                 <div class="form-group">
-			<label class="control-label col-sm-4" for="criticality">Request
-				Criticality<span>*</span></label>
+			<label class="control-label col-sm-4" for="criticality">Criticality<span>*</span></label>
 			<div class="col-sm-8" ng-class="{true: 'has-error'} [srForm.criticality.$invalid && submitted ]">
 				<select ng-model="data.severity" class="form-control" name="criticality" required="required">
 					<option ng-repeat="option in reqSeverityOptions"
 						value="{{option.id}}">{{option.name}}</option>
 				</select>
-				<p ng-show="srForm.criticality.$invalid && submitted" class="help-block">Request Criticality is required.</p>
+				<p ng-show="srForm.criticality.$invalid && submitted" class="help-block">Criticality is required.</p>
 			</div>			
 		</div>
                 <div class="form-group">
 			<label class="control-label col-sm-4" for="name">Requestor
 				Name<span>*</span></label>
 			<div class="col-sm-8" ng-class="{true: 'has-error'} [srForm.name.$invalid && submitted ]">
-				<input type="text" class="form-control" name="name" required="required"
+				<input type="text" alphabets-only class="form-control" name="name" required="required"
 					ng-model="data.requestor_name" id="subject"
 					placeholder="Enter Requestor Name">
 				<p ng-show="srForm.name.$invalid && submitted" class="help-block">Requestor Name is required.</p>
@@ -93,13 +89,6 @@
 		</div>
 </fieldset>
 <fieldset class="col-sm-6">
-		
-		
-		
-		
-		
-		
-		
 
 		<div class="form-group">
 			<label class="control-label col-sm-4" for="email">Requestor
@@ -115,11 +104,23 @@
 		<div class="form-group">
 			<label class="control-label col-sm-4" for="contact">Requestor
 				Contact Number<span>*</span></label>
-			<div class="col-sm-8" ng-class="{true: 'has-error'} [srForm.contact.$invalid && submitted ]">
-				<input type="text" id="requestorContactNumber" class="form-control" required="required"
+			<div class="col-sm-8" ng-class="{true: 'has-error'} [(srForm.contact.$error.number || srForm.contact.$error.required
+								  || srForm.contact.$error.minlength || srForm.contact.$error.maxlength) && submitted ]">
+				<input type="text" id="requestorContactNumber" class="form-control" required="required" numbers-only
 					ng-model="data.requestor_contact" name="contact"
-					placeholder="Enter Contact Number" />
-				<p ng-show="srForm.contact.$invalid && submitted" class="help-block">Requestor Contact is required.</p>
+					placeholder="Enter Contact Number" 
+					ng-minlength="10" 
+                    ng-maxlength="10"
+                    maxlength="10"
+                    ng-required="true"  />
+				<span ng-show="srForm.contact.$error.required && submitted" class="help-block">
+						Phone number is required</span>
+				<span class="help-block" 
+                  ng-show="((srForm.contact.$error.minlength ||
+                           srForm.contact.$error.maxlength) && 
+                           srForm.contact.$dirty) ">
+                           Phone number should be 10 digits
+            	</span>
 			</div>			
 		</div>
 		
